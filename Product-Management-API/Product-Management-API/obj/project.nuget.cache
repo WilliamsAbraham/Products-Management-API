@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nXfwwN0lz0tSOXZVCC9XJtiWTSHd7OoWR8EmfzBJuSY2W4zRbpevs+SWge2uFIELsZlmaeQNqBNHrJQ3EkgfEA==",
+  "dgSpecHash": "/+aKn4tk0rMHaJcdLsX/Wj20tNQmPx6oN+CSs29L75m1Gu3qdvNrGfABI1Ynf/fB2zSXAHPW9aHknEI/DsPgtQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\DELL\\Desktop\\CodeProject\\Product-Management-API\\Product-Management-API\\Product-Management-API\\Product-Management-API.csproj",
+  "projectFilePath": "C:\\Users\\DELL\\Desktop\\CodeProject\\Products-Management-API\\Product-Management-API\\Product-Management-API\\Product-Management-API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.7\\microsoft.aspnetcore.cryptography.internal.6.0.7.nupkg.sha512",

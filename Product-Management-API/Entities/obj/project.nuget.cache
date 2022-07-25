@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "O4bcXOvKozGAF3KF7WRPC+MoXyyJtSHpP1BUUbcnf15vqt6AksZBdIO2GHQ8pSN/A7WdoXzlGlssP/szr1WSMw==",
+  "dgSpecHash": "23yRV3IuBPoWNek4B4azfvXzwK5GBmEO0CqC1/oc6Kcg9QXWXo4UKtDELLVghFObevas7UTzk/hb3VUKpy9Z6A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\DELL\\Desktop\\CodeProject\\Product-Management-API\\Product-Management-API\\Entities\\Entities.csproj",
+  "projectFilePath": "C:\\Users\\DELL\\Desktop\\CodeProject\\Products-Management-API\\Product-Management-API\\Entities\\Entities.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.7\\microsoft.aspnetcore.cryptography.internal.6.0.7.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.7\\microsoft.aspnetcore.cryptography.keyderivation.6.0.7.nupkg.sha512",

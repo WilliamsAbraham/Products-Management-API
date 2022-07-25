@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DELL\\Desktop\\CodeProject\\Product-Management-API\\Product-Management-API\\Contracts\\Contracts.csproj": {}
+    "C:\\Users\\DELL\\Desktop\\CodeProject\\Products-Management-API\\Product-Management-API\\Contracts\\Contracts.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DELL\\Desktop\\CodeProject\\Product-Management-API\\Product-Management-API\\Contracts\\Contracts.csproj": {
+    "C:\\Users\\DELL\\Desktop\\CodeProject\\Products-Management-API\\Product-Management-API\\Contracts\\Contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DELL\\Desktop\\CodeProject\\Product-Management-API\\Product-Management-API\\Contracts\\Contracts.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\Desktop\\CodeProject\\Products-Management-API\\Product-Management-API\\Contracts\\Contracts.csproj",
         "projectName": "Contracts",
-        "projectPath": "C:\\Users\\DELL\\Desktop\\CodeProject\\Product-Management-API\\Product-Management-API\\Contracts\\Contracts.csproj",
+        "projectPath": "C:\\Users\\DELL\\Desktop\\CodeProject\\Products-Management-API\\Product-Management-API\\Contracts\\Contracts.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DELL\\Desktop\\CodeProject\\Product-Management-API\\Product-Management-API\\Contracts\\obj\\",
+        "outputPath": "C:\\Users\\DELL\\Desktop\\CodeProject\\Products-Management-API\\Product-Management-API\\Contracts\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
