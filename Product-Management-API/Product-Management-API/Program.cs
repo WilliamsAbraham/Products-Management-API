@@ -1,12 +1,15 @@
 using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Product_Management_API.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
 // Add services to the container.
 builder.Services.ConfigureCors();
-builder.Services.ConfigureIISIntegration();
+builder.Services.AddAuthentication();
+builder.Services.ConfigureIdentity();
+
 
 builder.Services.AddControllers();
 
@@ -26,7 +29,7 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
     ForwardedHeaders = ForwardedHeaders.All
 });
 app.UseCors("CorsPolicy");
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
