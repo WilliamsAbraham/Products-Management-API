@@ -8,6 +8,7 @@ namespace Contracts
 {
     public class IRepositoryManager
     {
-        Task Proct
+        IProductRepository? ProductRepository{ get; }
+        IAppAdminRepository? AppAdminRepository{ get; }
     }
 }

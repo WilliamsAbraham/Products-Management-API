@@ -29,5 +29,10 @@ namespace Product_Management_API.Extensions
             .AddEntityFrameworkStores<RepositoryContext>()
             .AddDefaultTokenProviders();
         }
+        public static void ConfigureSqlContext(this IServiceCollection services,
+            IConfiguration configuration) =>
+            services.AddDbContext<RepositoryContext>(opts =>
+            opts.UseMySql(configuration.GetConnectionString("SqlConnection"),
+            new MySqlServerVersion(new Version(8, 0, 11)), b => b.MigrationsAssembly("Product-Management-API")));
     }
 }

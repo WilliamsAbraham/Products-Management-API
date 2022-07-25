@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shared.ProductDtos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,9 @@ namespace Contracts
 {
     public interface IProductRepository
     {
-        Task<IEnumerable<CompanyDto>> GetAllProductsAsync(bool trackChanges, CancellationToken cancellationToken);
-        Task<CompanyDto> CreateCompanyAsync(CompanyForCreationDto company,CancellationToken cancellationToken);
-        Task DeleteCompanyAsync(Guid companyId, bool trackChanges, CancellationToken cancellationToken);
-        Task UpdateCompanyAsync(Guid companyid, CompanyForUpdateDto companyForUpdate,bool trackChanges, CancellationToken cancellationToken);
+        Task<IEnumerable<ProductResponseDto>> GetAllProductsAsync(bool trackChanges, CancellationToken cancellationToken);
+        Task<ProductCreationDto> CreateCompanyAsync(ProductCreationDto company,CancellationToken cancellationToken);
+        Task DeleteCompanyAsync(int productId, bool trackChanges, CancellationToken cancellationToken);
+        Task UpdateCompanyAsync(int productId, ProductUpdateDto companyForUpdate,bool trackChanges, CancellationToken cancellationToken);
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shared.AppAdminDtos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace Contracts
 {
     public interface IAppAdminRepository
     {
-        Task<CompanyDto> CreateCompanyAsync(CompanyForCreationDto admin, CancellationToken cancellationToken);
+        Task<AdminCreationDto> CreateCompanyAsync(AdminCreationDto admin, CancellationToken cancellationToken);
     }
 }
