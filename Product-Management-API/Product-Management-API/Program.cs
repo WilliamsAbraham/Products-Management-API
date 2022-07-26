@@ -12,6 +12,7 @@ builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.ConfigureSqlContext(builder.Configuration);
 builder.Services.AddAuthentication();
 builder.Services.ConfigureIdentity();
+builder.Services.ConfigureJWT(builder.Configuration);   
 
 
 builder.Services.AddControllers();
