@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Contracts
 {
-    public class IRepositoryManager
+    public interface IRepositoryManager
     {
-        IProductRepository? ProductRepository{ get; }
-        IAppAdminRepository? AppAdminRepository{ get; }
+        IProductRepository? Product{ get; }
+        IAppAdminRepository? AppAdmin{ get; }
+        Task Save();
     }
 }

@@ -1,4 +1,5 @@
-﻿using Entities.Models;
+﻿using Contracts;
+using Entities.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Repository;
@@ -34,5 +35,7 @@ namespace Product_Management_API.Extensions
             services.AddDbContext<RepositoryContext>(opts =>
             opts.UseMySql(configuration.GetConnectionString("SqlConnection"),
             new MySqlServerVersion(new Version(8, 0, 11)), b => b.MigrationsAssembly("Product-Management-API")));
+        public static void ConfigureRepositoryManager(this IServiceCollection services) =>
+          services.AddScoped<IRepositoryManager, RepositoryManager>();
     }
 }

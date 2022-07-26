@@ -1,4 +1,5 @@
-﻿using Shared.AppAdminDtos;
+﻿using Microsoft.AspNetCore.Identity;
+using Shared.DataTransferObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace Contracts
 {
     public interface IAppAdminRepository
     {
-        Task<AdminCreationDto> CreateCompanyAsync(AdminCreationDto admin, CancellationToken cancellationToken);
+        Task<IdentityResult> RegisterUser(UserForRegistrationDto userForRegistration);
+        Task<bool> ValidateUser(UserForAuthenticationDto userForAuth);
+        Task<string> CreateToken();
     }
 }
