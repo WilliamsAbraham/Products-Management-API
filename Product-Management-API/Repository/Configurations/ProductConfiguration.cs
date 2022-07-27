@@ -14,8 +14,8 @@ namespace Repository.Configurations
         public void Configure(EntityTypeBuilder<Product> builder)
         {
             builder.HasData(
-                new Product { Id = 1, ProductName = "Orang", ProductDescription = "sweet", Price = 202, Enabled = true},
-                new Product {Id = 2, ProductName = "Grape", ProductDescription = "bitter", Price = 200, Enabled = false}) ;
+                new Product { Id = 1, ProductName = "Orang", ProductDescription = "sweet", Price = 202, IsEnabled = true},
+                new Product {Id = 2, ProductName = "Grape", ProductDescription = "bitter", Price = 200, IsEnabled = false}) ;
         }
     }
 }

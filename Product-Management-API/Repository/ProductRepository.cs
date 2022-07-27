@@ -63,12 +63,30 @@ namespace Repository
         {
            var product = await GetByIdsAsync(productId, trackChanges, cancellationToken:default);
            var productEntity = _Mapper.Map<Product>(product);
-            productEntity.Enabled = true;
+            productEntity.IsEnabled = false;
             Update(productEntity);
         }
-        public async Task<int> PriceSumOfDisabledProducts()
+        public async Task<IEnumerable<ProductResponseDto>> GetAllDisabledProductAsync( CancellationToken cancellationToken)
         {
-            int sum 
+            var Products = await GetAllProductsAsync(trackChanges:false, cancellationToken: default);
+
+            var DisabledProducts = Products.Where(x => x.IsEnabled == false).OrderByDescending(x => x.CreatedDate).ToList();
+            return DisabledProducts;
+        }
+        public async Task<decimal> GetPriceSumOfProducts(CancellationToken cancellationToken)
+        {
+            var startDate = DateTime.Now.AddDays(-7);
+            var sumOfProductsWithinSevenDays = 0.0m;
+            var products = await GetAllProductsAsync(trackChanges:false,cancellationToken:default);
+            var productsWithinSevenDays = products.Where(x =>x.CreatedDate >= startDate).ToList();
+           
+            foreach (var product in products)
+            {
+                sumOfProductsWithinSevenDays += (decimal)product.Price;
+            }
+            return sumOfProductsWithinSevenDays;
+
+
         }
     }
 }

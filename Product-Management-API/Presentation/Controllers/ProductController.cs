@@ -57,7 +57,7 @@ namespace Presentation.Controllers
 
             return NoContent();
         }
-        [HttpPut("{id:int}")]
+        [HttpPut("{id:int}", Name = "UpdateProduct")]
         public async Task<IActionResult> UpdateProduct(int id, [FromBody] ProductUpdateDto productUpdate)
         {
             if (productUpdate is null)
@@ -66,13 +66,25 @@ namespace Presentation.Controllers
 
             return NoContent();
         }
-        [HttpPut("{id:int}")]
+        [HttpPut("{id:int}", Name = "DisableProduct")]
         public async Task<IActionResult> DisableProduct(int id)
         {
 
             await _repository.Product.DisableProductAsync(id, trackChanges: false, cancellationToken: default);
 
             return NoContent();
+        }
+        [HttpGet("DisabledProduct")]
+        public async Task<IActionResult> GetDisabledProducts ()
+        {
+            var DisabledProducts = await _repository.Product.GetAllDisabledProductAsync(cancellationToken: default);
+            return Ok(DisabledProducts);
+        }
+        [HttpGet("SumeofPrce")]
+        public async Task<IActionResult> GetSumOfPrice()
+        {
+            var sum = await _repository.Product.GetPriceSumOfProducts(cancellationToken: default);
+            return Ok(sum);
         }
     }
 }

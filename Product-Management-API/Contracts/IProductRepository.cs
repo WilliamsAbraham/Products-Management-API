@@ -16,5 +16,7 @@ namespace Contracts
         Task DeleteProductAsync(int productId, bool trackChanges, CancellationToken cancellationToken);
         Task UpdateProductAsync(int productId, ProductUpdateDto companyForUpdate,bool trackChanges, CancellationToken cancellationToken);
         Task DisableProductAsync(int productId, bool trackChanges, CancellationToken cancellationToken);
+        Task<IEnumerable<ProductResponseDto>> GetAllDisabledProductAsync(CancellationToken cancellationToken);
+        Task<decimal> GetPriceSumOfProducts(CancellationToken cancellationToken);
     }
 }

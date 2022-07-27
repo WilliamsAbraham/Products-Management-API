@@ -11,6 +11,8 @@ namespace Shared.DataTransferObjects
     {
         public string? ProductName { get; set; }
         public string? ProductDescription { get; set; }
+        public bool IsEnabled { get; set; } = true;
+        public DateTime CreatedDate { get; set; }
         public decimal? Price { get; set; }
 
     }

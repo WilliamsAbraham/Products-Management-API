@@ -21,7 +21,7 @@ namespace Entities.Models
         [Required(ErrorMessage = "Price is a required field.")]
         public decimal Price { get; set; }
         public DateTime CreatedDate { get; set; }
-        public bool? Enabled { get; set; } = true;
+        public bool? IsEnabled { get; set; } = true;
 
 
 
