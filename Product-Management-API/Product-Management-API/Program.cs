@@ -6,6 +6,8 @@ using Product_Management_API.Extensions;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddControllers()
+            .AddApplicationPart(typeof(Presentation.AssemblyReference).Assembly);
 builder.Services.ConfigureRepositoryManager();
 builder.Services.ConfigureCors();
 builder.Services.AddAutoMapper(typeof(Program));

@@ -27,7 +27,7 @@ namespace Repository
             return productsDto;
 
         }
-        public async Task<ProductResponseDto> GetByIdsAsync (int  productId, bool trackChanges)
+        public async Task<ProductResponseDto> GetByIdsAsync (int  productId, bool trackChanges, CancellationToken cancellationToken)
         {
             var product = await FindByCondition(x => x.Id == productId, trackChanges).FirstOrDefaultAsync();
             var productDto = _Mapper.Map<ProductResponseDto>(product);
@@ -41,11 +41,11 @@ namespace Repository
             var productToReturn = _Mapper.Map<ProductResponseDto>(productEntity);
             return productToReturn;
 
-        }
+        } 
 
         public async Task DeleteProductAsync(int productId, bool trackChanges, CancellationToken cancellationToken)
         {
-            var Product = await GetByIdsAsync(productId, trackChanges);
+            var Product = await GetByIdsAsync(productId, trackChanges, cancellationToken:default);
             var productEntity = _Mapper.Map<Product>(Product);
             Delete(productEntity);
             _context.SaveChanges();
@@ -53,7 +53,7 @@ namespace Repository
 
         public async Task UpdateProductAsync(int productId, ProductUpdateDto productForUpdate, bool trackChanges, CancellationToken cancellationToken)
         {
-            var Product = await GetByIdsAsync(productId, trackChanges);
+            var Product = await GetByIdsAsync(productId, trackChanges, cancellationToken:default);
             _Mapper.Map(Product, productForUpdate);
             _context.SaveChanges();
 
@@ -61,7 +61,7 @@ namespace Repository
 
         public async Task DisableProductAsync(int productId, bool trackChanges, CancellationToken cancellationToken)
         {
-           var product = await GetByIdsAsync(productId, trackChanges);
+           var product = await GetByIdsAsync(productId, trackChanges, cancellationToken:default);
            var productEntity = _Mapper.Map<Product>(product);
             productEntity.Enabled = true;
             Update(productEntity);
