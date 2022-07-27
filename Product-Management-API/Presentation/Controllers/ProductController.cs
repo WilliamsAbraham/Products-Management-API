@@ -37,6 +37,7 @@ namespace Presentation.Controllers
 
         }
         [HttpGet("Id:int", Name = "ProductById")]
+        [Authorize]
         public async Task<IActionResult> GetProductById(int id)
         {
             var products = await _repository.Product.GetByIdsAsync(id, trackChanges: false, cancellationToken: default);
@@ -45,6 +46,7 @@ namespace Presentation.Controllers
 
         }
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> CreateProduct([FromBody] ProductCreationDto company)
         {
             if (company is null)
@@ -61,6 +63,7 @@ namespace Presentation.Controllers
             return NoContent();
         }
         [HttpPut("{id:int}", Name = "UpdateProduct")]
+        [Authorize]
         public async Task<IActionResult> UpdateProduct(int id, [FromBody] ProductUpdateDto productUpdate)
         {
             if (productUpdate is null)
@@ -70,6 +73,7 @@ namespace Presentation.Controllers
             return NoContent();
         }
         [HttpPut("{id:int}", Name = "DisableProduct")]
+        [Authorize]
         public async Task<IActionResult> DisableProduct(int id)
         {
 
