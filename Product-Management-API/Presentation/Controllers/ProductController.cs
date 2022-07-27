@@ -1,4 +1,5 @@
 ﻿using Contracts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Shared.DataTransferObjects;
 using System;
@@ -21,6 +22,7 @@ namespace Presentation.Controllers
 
         }
         [HttpGet]
+       [Authorize]
         public async Task<IActionResult> GetProducts()
         {
             try
@@ -51,6 +53,7 @@ namespace Presentation.Controllers
             return Ok(createdProduct);
         }
         [HttpDelete("{id:int}")]
+        [Authorize(Roles = "Manager")]    
         public async Task<IActionResult> DeleteEmployeeForCompany(int Id)
         {
             await _repository.Product.DeleteProductAsync(Id, trackChanges: false, cancellationToken: default);
@@ -75,12 +78,14 @@ namespace Presentation.Controllers
             return NoContent();
         }
         [HttpGet("DisabledProduct")]
+        [Authorize(Roles = "Manager")]
         public async Task<IActionResult> GetDisabledProducts ()
         {
             var DisabledProducts = await _repository.Product.GetAllDisabledProductAsync(cancellationToken: default);
             return Ok(DisabledProducts);
         }
         [HttpGet("SumeofPrce")]
+        [Authorize]
         public async Task<IActionResult> GetSumOfPrice()
         {
             var sum = await _repository.Product.GetPriceSumOfProducts(cancellationToken: default);

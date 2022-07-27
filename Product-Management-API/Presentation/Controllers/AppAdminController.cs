@@ -1,4 +1,5 @@
 ﻿using Contracts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Shared.DataTransferObjects;
 using System;
@@ -19,6 +20,7 @@ namespace Presentation.Controllers
             _repository = repositoryManager;
         }
         [HttpPost]
+        [Authorize(Roles = "Manager")]
         public async Task<IActionResult> RegisterUser([FromBody] UserForRegistrationDto userForRegistration)
         {
             var result = await
