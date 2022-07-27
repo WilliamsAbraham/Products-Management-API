@@ -10,7 +10,7 @@ namespace Contracts
 {
     public interface IAppAdminRepository
     {
-        Task<IdentityResult> RegisterUser(UserForRegistrationDto userForRegistration);
+        Task<IdentityResult> RegisterUserAsync(UserForRegistrationDto userForRegistration);
         Task<bool> ValidateUser(UserForAuthenticationDto userForAuth);
         Task<string> CreateToken();
     }

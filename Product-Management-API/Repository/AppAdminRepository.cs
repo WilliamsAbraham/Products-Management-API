@@ -30,14 +30,14 @@ namespace Repository
             _configuration = configuration;
         }
 
-        public async Task<IdentityResult> RegisterUser(UserForRegistrationDto userForRegistration)
+        public async Task<IdentityResult> RegisterUserAsync(UserForRegistrationDto userForRegistration)
         {
             var user = _mapper.Map<AppAdmin>(userForRegistration);
             var result = await _userManager.CreateAsync(user,userForRegistration.Password);
             if (result.Succeeded)
                 await _userManager.AddToRoleAsync(user, userForRegistration.Role);
 
-            return
+            return 
                 result;
         }
         public async Task<bool> ValidateUser(UserForAuthenticationDto userForAuth)

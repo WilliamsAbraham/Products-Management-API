@@ -66,5 +66,9 @@ namespace Repository
             productEntity.Enabled = true;
             Update(productEntity);
         }
+        public async Task<int> PriceSumOfDisabledProducts()
+        {
+            int sum 
+        }
     }
 }
