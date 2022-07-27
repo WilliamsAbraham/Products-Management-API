@@ -19,15 +19,18 @@ namespace Repository
     { private readonly RepositoryContext _context;
         private readonly IMapper _mapper;
         private readonly UserManager<AppAdmin> _userManager;
+        private readonly SignInManager<AppAdmin> _singInManagerManager;
+
         private readonly IConfiguration _configuration;
         private AppAdmin? _appAdmin;
 
-        public AppAdminRepository(RepositoryContext context, IMapper mapper,UserManager<AppAdmin> userManager, IConfiguration configuration)
+        public AppAdminRepository(RepositoryContext context, IMapper mapper, UserManager<AppAdmin> userManager, IConfiguration configuration, SignInManager<AppAdmin> singInManagerManager)
         {
             _context = context;
             _mapper = mapper;
             _userManager = userManager;
             _configuration = configuration;
+            _singInManagerManager = singInManagerManager;
         }
 
         public async Task<IdentityResult> RegisterUserAsync(UserForRegistrationDto userForRegistration)
@@ -44,6 +47,7 @@ namespace Repository
         {
             _appAdmin = await _userManager.FindByEmailAsync(userForAuth.Email);
             var result = (_appAdmin != null &&  await _userManager.CheckPasswordAsync(_appAdmin, userForAuth.Password)); 
+            
             if(result)
                 return true;
                 return result;
