@@ -16,7 +16,6 @@ namespace Repository
         private readonly IMapper _mapper;
         private readonly UserManager<AppAdmin> _userManager;
         private readonly SignInManager<AppAdmin> _singInManagerManager;
-
         private readonly IConfiguration _configuration;
         private AppAdmin? _appAdmin;
 

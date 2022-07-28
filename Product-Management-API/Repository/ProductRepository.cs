@@ -17,6 +17,7 @@ namespace Repository
         }
         public async Task<IEnumerable<ProductResponseDto>> GetAllProductsAsync (bool trackChanges, CancellationToken cancellationToken)
         {
+            // 
             var products = await FindAll(trackChanges).OrderBy(x => x.ProductName).ToListAsync();
             var productsDto = _Mapper.Map<IEnumerable<ProductResponseDto>>(products);
             return productsDto;

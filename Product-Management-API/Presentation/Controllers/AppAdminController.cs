@@ -23,20 +23,29 @@ namespace Presentation.Controllers
         [Authorize(Roles = "Manager")]
         public async Task<IActionResult> RegisterUser([FromBody] UserForRegistrationDto userForRegistration)
         {
-            var result = await
-            _repository.AppAdmin.RegisterUserAsync(userForRegistration);
-         
-                return
-                    StatusCode(201);
+            
+            try
+            {
+                if (userForRegistration == null) return BadRequest("User is null");
+                //Register user if the dto is not null
+                var result = await _repository.AppAdmin.RegisterUserAsync(userForRegistration);
+
+                //return user if registration is successful
+                return Ok(result);
+            }
+                    catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
         [HttpPost("login")]
         public async Task<IActionResult> Authenticate([FromBody] UserForAuthenticationDto user)
         {
+            //check if user exist
             if (!await _repository.AppAdmin.ValidateUser(user))
-                return Unauthorized();
+            return Unauthorized();
+            //return token if user exists and is validated
             return Ok(new { Token = await _repository.AppAdmin.CreateToken() });
-            
-
         }
     }
 }
