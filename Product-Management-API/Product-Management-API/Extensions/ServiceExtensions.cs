@@ -11,6 +11,7 @@ namespace Product_Management_API.Extensions
 {
     public static  class ServiceExtensions
     {
+        //Configuring CORS with policy options 
         public static void ConfigureCors(this IServiceCollection services) =>
          services.AddCors(options =>
          {
@@ -19,6 +20,7 @@ namespace Product_Management_API.Extensions
              .AllowAnyMethod()
              .AllowAnyHeader());
          });
+        //Configuring and populating the Identity properties
         public static void ConfigureIdentity(this IServiceCollection services)
         {
             var builder = services.AddIdentity<AppAdmin, IdentityRole>(o =>
@@ -33,15 +35,17 @@ namespace Product_Management_API.Extensions
             .AddEntityFrameworkStores<RepositoryContext>()
             .AddDefaultTokenProviders();
         }
+        // onfiguring and paring sql connection string 
         public static void ConfigureSqlContext(this IServiceCollection services,
             IConfiguration configuration) =>
             services.AddDbContext<RepositoryContext>(opts =>
             opts.UseMySql(configuration.GetConnectionString("SqlConnection"),
             new MySqlServerVersion(new Version(8, 0, 11)), b => b.MigrationsAssembly("Product-Management-API")));
-
+        //parsing the Repository Manager to the DI service container
         public static void ConfigureRepositoryManager(this IServiceCollection services) =>
           services.AddScoped<IRepositoryManager, RepositoryManager>();
 
+        //Adding jwt Authentication to the DI srvice coontainer and configuring it's settings
         public static void ConfigureJWT(this IServiceCollection services, IConfiguration configuration)
         {
             var jwtSettings = configuration.GetSection("JwtSettings");
