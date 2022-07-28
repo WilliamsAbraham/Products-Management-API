@@ -56,7 +56,7 @@ namespace Presentation.Controllers
         }
         [HttpDelete("{id:int}")]
         [Authorize(Roles = "Manager")]    
-        public async Task<IActionResult> DeleteEmployeeForCompany(int Id)
+        public async Task<IActionResult> DeleteProduct(int Id)
         {
             await _repository.Product.DeleteProductAsync(Id, trackChanges: false, cancellationToken: default);
 
