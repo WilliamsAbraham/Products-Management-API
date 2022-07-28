@@ -8,11 +8,11 @@ namespace Product_Management_API
     {
         public MappingProfile()
         {
-            CreateMap<Product, ProductCreationDto>();
-            CreateMap<Product, ProductResponseDto>();
-            CreateMap<Product, ProductUpdateDto>();
-            CreateMap<AppAdmin, UserForRegistrationDto>();
-            CreateMap<AppAdmin, UserForAuthenticationDto>();
+            CreateMap<Product, ProductCreationDto>().ReverseMap();
+            CreateMap<Product, ProductResponseDto>().ReverseMap();
+            CreateMap<Product, ProductUpdateDto>().ReverseMap();
+            CreateMap<AppAdmin, UserForRegistrationDto>().ReverseMap();
+            CreateMap<AppAdmin, UserForAuthenticationDto>().ReverseMap();
 
         }
     }
