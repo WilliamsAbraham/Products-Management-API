@@ -32,6 +32,7 @@ namespace Product_Management_API.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("varchar(256)");
 
@@ -39,9 +40,11 @@ namespace Product_Management_API.Migrations
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("FirstName")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("LastName")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<bool>("LockoutEnabled")
@@ -58,6 +61,10 @@ namespace Product_Management_API.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("varchar(256)");
 
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<string>("PasswordHash")
                         .HasColumnType("longtext");
 
@@ -66,6 +73,9 @@ namespace Product_Management_API.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("Role")
+                        .HasColumnType("longtext");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("longtext");
@@ -99,6 +109,9 @@ namespace Product_Management_API.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<bool?>("IsEnabled")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(65,30)");
 
@@ -119,6 +132,7 @@ namespace Product_Management_API.Migrations
                         {
                             Id = 1,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsEnabled = true,
                             Price = 202m,
                             ProductDescription = "sweet",
                             ProductName = "Orang"
@@ -127,6 +141,7 @@ namespace Product_Management_API.Migrations
                         {
                             Id = 2,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsEnabled = false,
                             Price = 200m,
                             ProductDescription = "bitter",
                             ProductName = "Grape"
@@ -161,15 +176,15 @@ namespace Product_Management_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "4bfdc048-1abe-4095-ba56-b36b09aaaabb",
-                            ConcurrencyStamp = "1c4ce606-c801-4d2a-becd-460a0fb8b934",
+                            Id = "5c78bd2a-d5be-4b27-8513-aa7ec3641137",
+                            ConcurrencyStamp = "ab5a2630-5f9b-4d06-a15d-93af4b6b378b",
                             Name = "Manager",
                             NormalizedName = "MANAGER"
                         },
                         new
                         {
-                            Id = "11134aab-81b3-4a7d-9e32-c1f0d60db607",
-                            ConcurrencyStamp = "910250c8-a161-4448-8f8a-706e2debefa9",
+                            Id = "c7d0208d-a2e6-469c-843d-f36c09fa4c2b",
+                            ConcurrencyStamp = "f9be8a4d-e878-44ca-a860-7194ced5cf4b",
                             Name = "Staff",
                             NormalizedName = "ADMINISTRATOR"
                         });

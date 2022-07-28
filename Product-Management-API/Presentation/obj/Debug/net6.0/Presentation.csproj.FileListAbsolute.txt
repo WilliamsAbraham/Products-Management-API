@@ -10,3 +10,10 @@ C:\Users\DELL\Desktop\CodeProject\Products-Management-API\Product-Management-API
 C:\Users\DELL\Desktop\CodeProject\Products-Management-API\Product-Management-API\Presentation\obj\Debug\net6.0\refint\Presentation.dll
 C:\Users\DELL\Desktop\CodeProject\Products-Management-API\Product-Management-API\Presentation\obj\Debug\net6.0\Presentation.pdb
 C:\Users\DELL\Desktop\CodeProject\Products-Management-API\Product-Management-API\Presentation\obj\Debug\net6.0\ref\Presentation.dll
+C:\Users\DELL\Desktop\CodeProject\Products-Management-API\Product-Management-API\Presentation\bin\Debug\net6.0\Contracts.dll
+C:\Users\DELL\Desktop\CodeProject\Products-Management-API\Product-Management-API\Presentation\bin\Debug\net6.0\Entities.dll
+C:\Users\DELL\Desktop\CodeProject\Products-Management-API\Product-Management-API\Presentation\bin\Debug\net6.0\Shared.dll
+C:\Users\DELL\Desktop\CodeProject\Products-Management-API\Product-Management-API\Presentation\bin\Debug\net6.0\Contracts.pdb
+C:\Users\DELL\Desktop\CodeProject\Products-Management-API\Product-Management-API\Presentation\bin\Debug\net6.0\Entities.pdb
+C:\Users\DELL\Desktop\CodeProject\Products-Management-API\Product-Management-API\Presentation\bin\Debug\net6.0\Shared.pdb
+C:\Users\DELL\Desktop\CodeProject\Products-Management-API\Product-Management-API\Presentation\obj\Debug\net6.0\Presentation.csproj.CopyComplete
