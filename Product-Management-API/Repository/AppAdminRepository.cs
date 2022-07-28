@@ -30,23 +30,29 @@ namespace Repository
 
         public async Task<IdentityResult> RegisterUserAsync(UserForRegistrationDto userForRegistration)
         {
+            //mapping the registrationDto to the AppAdmin entities
             var user = _mapper.Map<AppAdmin>(userForRegistration);
+            // concatenating the first and last names to form the Username 
             user.UserName = user.FirstName + user.LastName;
             var result = await _userManager.CreateAsync(user,userForRegistration.Password);
             if (!result.Succeeded)
                 throw new Exception($"{result.Errors}");
+            //on successful user creation, add user to the database
                 await _userManager.AddToRoleAsync(user, userForRegistration.Role);
 
             return 
+                //return created user
                 result;
         }
         public async Task<bool> ValidateUser(UserForAuthenticationDto userForAuth)
         {
+            //checking if user exists by email
             _appAdmin = await _userManager.FindByEmailAsync(userForAuth.Email);
             var result = (_appAdmin != null &&  await _userManager.CheckPasswordAsync(_appAdmin, userForAuth.Password));
-
+            //throw an exception if user does not exist
             if (!result)
                 throw new Exception("User was not found");
+            //return result if user exists
                 return result;
         }
         public async Task<string> CreateToken()
