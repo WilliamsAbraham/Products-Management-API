@@ -57,23 +57,29 @@ namespace Repository
         }
         public async Task<string> CreateToken()
         {
+            //asignning the result from method GetSigningCredentials to the variable signingCredentials
             var signingCredentials = GetSigningCredentials();
             var claims = await GetClaims();
+            // parsing in the signingCredentials and the claims variables to the GenerateTokenOptions method 
             var tokenOptions = GenerateTokenOptions(signingCredentials, claims);
             return new JwtSecurityTokenHandler().WriteToken(tokenOptions);
         }
         private SigningCredentials GetSigningCredentials()
         {
+            //extracting the jwt key from the environment variable and storing it in the key variable
             var key = Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("SECRET"));
             var secret = new SymmetricSecurityKey(key);
+            //creating and returning the SigningCredentials
             return new SigningCredentials(secret,SecurityAlgorithms.HmacSha256);
 
         }
         private async Task<List<Claim>> GetClaims()
         {
             var claims = new List<Claim>
+            //creating a list of claims
             { new Claim(ClaimTypes.Name,_appAdmin.Email)};
             var roles = await _userManager.GetRolesAsync(_appAdmin);
+            //adding role claim types to the list of cliams
             foreach (var role in roles)
             {
                 claims.Add(new Claim(ClaimTypes.Role, role));
@@ -83,6 +89,7 @@ namespace Repository
         private JwtSecurityToken GenerateTokenOptions(SigningCredentials signingCredentials, List<Claim> claims)
         {
             var jwtSettings = _configuration.GetSection("JwtSettings");
+            //populating the jwt securitytoken properties
             var tokenOptions = new JwtSecurityToken 
                 (
                 issuer:jwtSettings["ValidIssuer"],
