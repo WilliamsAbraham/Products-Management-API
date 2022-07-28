@@ -34,7 +34,8 @@ namespace Repository
             var user = _mapper.Map<AppAdmin>(userForRegistration);
             user.UserName = user.FirstName + user.LastName;
             var result = await _userManager.CreateAsync(user,userForRegistration.Password);
-            if (result.Succeeded)
+            if (!result.Succeeded)
+                throw new Exception($"{result.Errors}");
                 await _userManager.AddToRoleAsync(user, userForRegistration.Role);
 
             return 
@@ -43,10 +44,10 @@ namespace Repository
         public async Task<bool> ValidateUser(UserForAuthenticationDto userForAuth)
         {
             _appAdmin = await _userManager.FindByEmailAsync(userForAuth.Email);
-            var result = (_appAdmin != null &&  await _userManager.CheckPasswordAsync(_appAdmin, userForAuth.Password)); 
-            
-            if(result)
-                return true;
+            var result = (_appAdmin != null &&  await _userManager.CheckPasswordAsync(_appAdmin, userForAuth.Password));
+
+            if (!result)
+                throw new Exception("User was not found");
                 return result;
         }
         public async Task<string> CreateToken()
