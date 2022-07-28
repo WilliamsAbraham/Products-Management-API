@@ -1,6 +1,4 @@
 using Microsoft.AspNetCore.HttpOverrides;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Product_Management_API.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
