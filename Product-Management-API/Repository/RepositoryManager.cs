@@ -22,10 +22,12 @@ namespace Repository
             _userManager = userManager;
             _singInManagerManager = signInManager;
             _configuration = configuration;
+            // Initializing each repository classes when they'er needed using the Lazy class initializer
             _appAdminRepository = new Lazy<IAppAdminRepository>(() => new AppAdminRepository(_context, mapper, _userManager, _configuration,signInManager));
             _productRepository = new Lazy<IProductRepository>(() => new ProductRepository(_context,_mapper));   
 
         }
+        // parsing the productRepository and appadminRepostory values to the Product and AppAdmin properties respectively
         public IProductRepository? Product => _productRepository.Value;
 
         public IAppAdminRepository? AppAdmin => _appAdminRepository.Value;
